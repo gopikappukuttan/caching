@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydatabase
+    username: myuser
+    password: secret
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  cache:
+    type: caffeine
+    cache-names: products, prices
+    caffeine:
+      spec: maximumSize=100,expireAfterWrite=10s
+
+  logging:
+    level:
+      org.springframework.cache: DEBUG
